@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from bson import json_util
 from flask import Flask
 import pymongo

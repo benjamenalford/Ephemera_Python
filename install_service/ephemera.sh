@@ -1,3 +1,4 @@
+#!/bin/sh
 # Quick start-stop-daemon example, derived from Debian /etc/init.d/ssh
 set -e
 
@@ -5,7 +6,7 @@ set -e
 NAME=ephemera
 PIDFILE=/var/run/$NAME.pid
 #This is the command to be run, give the full pathname
-DAEMON=/home/benjamenalford/Projects/Ephemera_Python/your_script.py
+DAEMON=/home/benjamenalford/Projects/Ephemera_Python/ephemera.py
 
 case "$1" in
   start)
