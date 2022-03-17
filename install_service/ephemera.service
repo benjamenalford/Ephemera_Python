@@ -1,0 +1,5 @@
+[Unit]
+SourcePath=/etc/init.d/ephemera
+[Service]
+ExecStart=/etc/init.d/ephemera start
+ExecStop=/etc/init.d/ephemera stop
