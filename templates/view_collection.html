@@ -10,7 +10,7 @@
 View
 {% endblock %}
 
-{% block content_title %} Data for Collection {% endblock %}
+{% block content_title %} Data for Collection - {{name}} {% endblock %}
 
 {% block content %}
 <div>
@@ -18,19 +18,20 @@ View
 </div>
 <table id="data">
 	<thead>
+		<!--TODO make shorter-->
 		<tr>
 			{% for key in data[:1] %}
 			{% for item in key.keys() %}
 			<th>{{item}}</th>
 			{% endfor %}
-			{% endfor %}
 		</tr>
+		{% endfor %}
 	</thead>
 	<tbody>
 		{% for item in data %}
 		<tr>
-			{% for v in item.values() %}
-			<td>{{v}}</td>
+			{% for value in item.values() %}
+			<td>{{value}}</td>
 			{% endfor %}
 		</tr>
 		{% endfor %}
@@ -43,7 +44,5 @@ View
 {% endblock %}
 
 {% block debug %}
-<code>
-	{{data}}
-</code>
+{{data}}
 {% endblock %}
