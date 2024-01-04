@@ -38,6 +38,7 @@ def api_collection(collection):
 def view_api_collection(collection):
     collection = db[collection]
     data = collection.find()
+    data = [item for item in data]
     return render_template('view_collection.html',data=data)
 
 @app.route("/api/<collection>/add", methods=['POST'])
