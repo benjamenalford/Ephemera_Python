@@ -1,0 +1,50 @@
+<html>
+
+    <head>
+        <title>Ephemera</title>
+
+    </head>
+
+    <body>
+        <div>
+            <h1>Ephemera DB </h1>
+        </div>
+        <div>
+            <h2>Data</h2>
+        </div>
+        <table id="data">
+            <thead>
+                <tr>
+                    <th>date</th>
+                    <th>actual_max_temp</th>
+                    <th>actual_min_temp</th>
+                    <th>actual_precip</th>
+                    <th>actual_snow</th>
+                    <th>actual_snow_depth</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <td>{{item['date']}}</td>
+                    <td>{{item['actual_max_temp']}}</td>
+                    <td>{{item['actual_min_temp']}}</td>
+                    <td>{{item['actual_precip']}}</td>
+                    <td>{{item['actual_snow']}}</td>
+                    <td>{{item['actual_snow_depth']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div>
+
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+        <script>
+            let table = new DataTable('#data');
+        </script>
+    </body>
+
+</html>

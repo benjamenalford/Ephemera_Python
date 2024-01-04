@@ -1,0 +1,21 @@
+<html>
+
+    <head>
+        <title>Ephemera</title>
+    </head>
+
+    <body>
+        <div>
+            <h1>Ephemera DB API</h1>
+        </div>
+        <div>
+            <h2>Available Collections</h2>
+        </div>
+        <ul>
+            {% for collection in collections %}
+            <li>{{collection}}</li>
+            {% endfor %}
+        </ul>
+    </body>
+
+</html>

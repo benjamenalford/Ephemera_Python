@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from bson import json_util
-from flask import Flask
+from flask import Flask, render_template
 import pymongo
 import os
 import config
@@ -18,6 +18,11 @@ client = pymongo.MongoClient(serverUrl)
 db = client.ephemera
 default_collection = db.ephemera
 
+@app.route("/")
+def index():
+    collections = db.list_collection_names()
+    return render_template('index.html', collections=collections)
+
 @app.route("/api")
 def api():
     data = default_collection.find()
@@ -29,13 +34,18 @@ def api_collection(collection):
     data = collection.find()
     return json_util.dumps(data)
 
+@app.route("/view/<collection>")
+def view_api_collection(collection):
+    collection = db[collection]
+    data = collection.find()
+    return render_template('view_collection.html',data=data)
+
 @app.route("/api/<collection>/add", methods=['POST'])
 def api_collection_add(collection):
     collection = db[collection]
     collection.insert_one(request.json)
     data = collection.find()
     return json_util.dumps(data)
-
 
 @app.route("/api/<collection>/<id>")
 def api_collection_id(collection,id):
