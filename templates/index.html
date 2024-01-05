@@ -13,7 +13,7 @@ Home
 {% block content %}
 <ul>
     {% for collection in collections %}
-    <li>{{collection}} - <a href="/view/{{collection}}">view</a> - <a href="/api/{{collection}}">api</a></li>
+    <li>{{collection}} - <a href="view/{{collection}}">view</a> - <a href="api/{{collection}}">api</a></li>
     {% endfor %}
 </ul>
 {% endblock %}
