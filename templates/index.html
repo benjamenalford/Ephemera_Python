@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% endblock %}
+{% block header %}
+Home
+{% endblock %}
+
+{% block content_title %} Available Collections {% endblock %}
+
+{% block content %}
+<ul>
+    {% for collection in collections %}
+    <li>{{collection}} - <a href="/view/{{collection}}">view</a> - <a href="/api/{{collection}}">api</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}

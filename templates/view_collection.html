@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}View Collection{% endblock %}
+{% block head %}
+{{ super() }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+{% endblock %}
+{% block header %}
+View
+{% endblock %}
+
+{% block content_title %} Data for Collection - {{collection_name}} {% endblock %}
+
+{% block content %}
+<div>
+
+</div>
+<table id="data">
+	<thead>
+		<!--TODO make shorter-->
+		<tr>
+			{% for key in data[:1] %}
+			{% for item in key.keys() %}
+			<th>{{item}}</th>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</thead>
+	<tbody>
+		{% for item in data %}
+		<tr>
+			{% for value in item.values() %}
+			<td>{{value}}</td>
+			{% endfor %}
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<script>
+	let table = new DataTable('#data');
+</script>
+{% endblock %}
+
+{% block debug %}
+{{data}}
+{% endblock %}
