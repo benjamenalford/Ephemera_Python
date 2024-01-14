@@ -55,7 +55,7 @@ def api_collection_id(collection,id):
 def view_api_collection(collection):
     collection_name = collection
     collection = db[collection]
-    data = collection.find()
+    data = collection.find({},{'_id': 0})
     data = [item for item in data]
     return render_template('view_collection.html',data=data,collection_name=collection_name)
 

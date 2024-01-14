@@ -16,7 +16,7 @@ View
 <div>
 
 </div>
-<table id="data">
+<table id="data" class="table table-striped">
 	<thead>
 		<!--TODO make shorter-->
 		<tr>
@@ -39,7 +39,11 @@ View
 </table>
 
 <script>
-	let table = new DataTable('#data');
+	new DataTable('#data', {
+		order: [[0, 'desc']],
+		// paging: false
+		"lengthMenu": [[5, 31, -1], [5, 31, "All"]]
+	});
 </script>
 {% endblock %}
 
